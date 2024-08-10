@@ -16,7 +16,8 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 app.use(body_parser_1.default.json()); // For parsing application/
 app.use((0, cors_1.default)({
-    origin: "http://localhost:5173",
+    // origin: "http://localhost:5173",
+    origin: "*",
     credentials: true,
 }));
 app.use((0, morgan_1.default)("dev"));

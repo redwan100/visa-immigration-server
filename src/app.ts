@@ -15,7 +15,8 @@ app.use(express.urlencoded({ extended: true })); // For parsing application/x-ww
 app.use(bodyParser.json()); // For parsing application/
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    // origin: "http://localhost:5173",
+    origin: "*",
     credentials: true,
   })
 );
