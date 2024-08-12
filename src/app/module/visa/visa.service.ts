@@ -24,15 +24,16 @@ const getAllVisaFromDB = async () => {
 const getVisaFiltering = async (payload: any) => {
   const { visaNumber, clientNumber, passportNumber, dateOfBirth, nationality } =
     payload;
+
   if (!visaNumber || !clientNumber || !passportNumber || !nationality) {
     throw new Error("All fields must be provided");
   }
   const result = await Visa.findOne({
-    visaNumber,
-    clientNumber,
-    passportNumber,
+    visaNumber: { $regex: `^${visaNumber}$`, $options: "i" },
+    clientNumber: { $regex: `^${clientNumber}$`, $options: "i" },
+    passportNumber: { $regex: `^${passportNumber}$`, $options: "i" },
     dateOfBirth,
-    nationality,
+    nationality: { $regex: `^${nationality}$`, $options: "i" },
   });
 
   return result;

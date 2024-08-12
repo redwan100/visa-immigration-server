@@ -3,9 +3,9 @@ import express, { Application, NextFunction, Request, Response } from "express";
 import morgan from "morgan";
 
 import bodyParser from "body-parser";
-import globalErrorHandler from "./app/middleware/globalErrorHandler";
-import notFound from "./app/middleware/notFound";
-import router from "./app/routes";
+import globalErrorHandler from "./src/app/middleware/globalErrorHandler";
+import notFound from "./src/app/middleware/notFound";
+import router from "./src/app/routes";
 
 const app: Application = express();
 
