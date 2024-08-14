@@ -14,14 +14,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const app_1 = __importDefault(require("./app"));
-const config_1 = __importDefault(require("./app/config"));
+const config_1 = __importDefault(require("./src/app/config"));
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            // await mongoose.connect(config.database_url as string);
-            yield mongoose_1.default.connect("mongodb://localhost:27017/visa-immigration");
+            yield mongoose_1.default.connect(config_1.default.database_url);
+            // await mongoose.connect(
+            // ("mongodb+srv://immigration:immigration@cluster0.yq2vgbi.mongodb.net/visa-immigration");
+            // );
             app_1.default.listen(config_1.default.port, () => {
-                console.log(`sunrise app listening on port ${config_1.default.port}✅`);
+                console.log(`immigration listening on port ${config_1.default.port}✅`);
                 console.log("server is connected");
             });
         }

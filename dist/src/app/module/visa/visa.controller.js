@@ -60,7 +60,7 @@ const getVisa = (req, res, next) => __awaiter(void 0, void 0, void 0, function* 
         const response = yield visa_service_1.VisaServices.getAllVisaFromDB();
         res.status(http_status_1.default.OK).json({
             success: true,
-            message: "Visa retrieved successfully",
+            message: "All Visa retrieved successfully",
             data: response,
         });
     }

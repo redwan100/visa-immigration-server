@@ -27,6 +27,10 @@ const visaSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    path: {
+        type: String,
+        required: true,
+    },
 });
 const Visa = (0, mongoose_1.model)("Visa", visaSchema);
 exports.default = Visa;

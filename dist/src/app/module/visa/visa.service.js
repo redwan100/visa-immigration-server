@@ -18,6 +18,7 @@ const createVisaIntoDB = (req) => __awaiter(void 0, void 0, void 0, function* ()
     const file = req === null || req === void 0 ? void 0 : req.file;
     if (file) {
         req.body.picture = file === null || file === void 0 ? void 0 : file.originalname;
+        req.body.path = file.path;
     }
     const res = yield visa_model_1.default.create(req.body);
     return res;
@@ -36,11 +37,11 @@ const getVisaFiltering = (payload) => __awaiter(void 0, void 0, void 0, function
         throw new Error("All fields must be provided");
     }
     const result = yield visa_model_1.default.findOne({
-        visaNumber,
-        clientNumber,
-        passportNumber,
+        visaNumber: { $regex: `^${visaNumber}$`, $options: "i" },
+        clientNumber: { $regex: `^${clientNumber}$`, $options: "i" },
+        passportNumber: { $regex: `^${passportNumber}$`, $options: "i" },
         dateOfBirth,
-        nationality,
+        nationality: { $regex: `^${nationality}$`, $options: "i" },
     });
     return result;
 });
