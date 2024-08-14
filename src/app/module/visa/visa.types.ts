@@ -5,4 +5,5 @@ export type TVisa = {
   dateOfBirth: string;
   nationality: string;
   picture: string;
+  path: string;
 };

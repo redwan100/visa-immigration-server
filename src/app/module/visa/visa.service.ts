@@ -6,6 +6,7 @@ const createVisaIntoDB = async (req: Request) => {
 
   if (file) {
     req.body.picture = file?.originalname;
+    req.body.path = file.path;
   }
   const res = await Visa.create(req.body);
   return res;

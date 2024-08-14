@@ -51,7 +51,7 @@ const getVisa: RequestHandler = async (req, res, next) => {
 
     res.status(httpStatus.OK).json({
       success: true,
-      message: "Visa retrieved successfully",
+      message: "All Visa retrieved successfully",
       data: response,
     });
   } catch (error) {

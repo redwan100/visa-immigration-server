@@ -27,6 +27,10 @@ const visaSchema = new Schema<TVisa>({
     type: String,
     required: true,
   },
+  path: {
+    type: String,
+    required: true,
+  },
 });
 
 const Visa = model<TVisa>("Visa", visaSchema);
