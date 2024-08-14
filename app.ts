@@ -25,6 +25,7 @@ app.use(
 
 app.use(morgan("dev"));
 
+// download pdf functionality
 app.get("/download/:visaNumber", async (req, res) => {
   const visaNumber = req.params.visaNumber;
 
