@@ -39,6 +39,7 @@ const getVisaFiltering = async (payload: any) => {
 
   return result;
 };
+
 export const VisaServices = {
   createVisaIntoDB,
   deleteVisaFromDB,
