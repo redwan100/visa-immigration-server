@@ -17,8 +17,8 @@ app.use(express.urlencoded({ extended: true })); // For parsing application/x-ww
 app.use(bodyParser.json()); // For parsing application/
 app.use(
   cors({
-    // origin: "http://localhost:5173",
-    origin: "*",
+    origin: "http://localhost:5173",
+    // origin: "*",
     credentials: true,
   })
 );
@@ -36,7 +36,7 @@ app.get("/download/:visaNumber", async (req, res) => {
     return res.status(404).send("File not found");
   }
 
-  const filePath = visaDocument.path;
+  const filePath = visaDocument?.path;
 
   // Set headers and send the file
   res.download(filePath, path.basename(filePath), (err) => {
@@ -49,7 +49,14 @@ app.get("/download/:visaNumber", async (req, res) => {
 
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
   try {
-    res.send("Hello sunrise agency");
+    res.send("Hello immigration");
+  } catch (error) {
+    next(error);
+  }
+});
+app.get("/test", (req: Request, res: Response, next: NextFunction) => {
+  try {
+    res.send("test route");
   } catch (error) {
     next(error);
   }
